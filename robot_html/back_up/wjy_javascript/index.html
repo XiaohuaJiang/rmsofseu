@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html>
+     <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     <title>开放式网络机器人演示系统</title>
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <script type="text/javascript" src="ros_bundle.js"></script>
+     <script type="text/javascript" src="actionclient.js"></script>
+     <script type="text/javascript" src="key_control.js"></script>
+     <script type="text/javascript" src="map.js"></script>
+     <script type="text/javascript" src="nav2d.js"></script>
+     <script type="text/javascript" src=mjpegcanvas.js></script>
+     <script type="text/javascript" src=description.js></script>
+     <script type="text/javascript">
+     function main()			
+     {
+	document.addEventListener('keydown', function (e) {	//捕捉键盘事件
+          handleKey(e.keyCode, true);
+        }, true);
+        document.addEventListener('keyup', function (e) {
+          handleKey(e.keyCode, false);
+        }, true);
+     }
+    </script>
+    </head>
+    <body onload="main()" style="overflow-y:hidden">
+    <h1>构件化网络机器人系统</h1>
+    <div id = "div_connect">
+        <form name = "connect_form">
+        <label id="connecturl">URL:</label>
+        <input type = "text" name = texturl value = "ws://localhost:9091">
+	<input type = "button" name = "connect_button" value = "Connect" onclick = "connect_button_onclick()">
+    	</form>
+    </div>
+    <nav>
+	<label id="register">注册节点</label>        
+	<ul class="clear">
+    	<li>
+		<a href="#">Pioneer3-dx机器人</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(0)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+    	<li>
+		<a href="#">温度传感器节点</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(1)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+    	<li>
+		<a href="#">LM3S8962单片机</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(2)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+    	<li>
+		<a href="#">Cyton机械手臂</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(3)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+    	<li>
+		<a href="#">摄像头节点</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(4)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+	<li>
+		<a href="#">Kinect节点</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(5)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+	</ul>
+    </nav>
+    <div id = "div_task">
+	<label id = "task">任务解析</label>  
+    </div>
+    <div id = "div_log">
+	<label id="log">运行记录</label>
+	<textarea id = "log_area" name = text_log disabled = true></textarea>
+	<form name = "debug_form">
+	<input type = "text" name = text_debug>
+	<input type = "button" name = "debug_button" value = "调试" onclick = "connect_debug_onclick()">
+	</form>
+    </div>
+    </body>
+    </html>

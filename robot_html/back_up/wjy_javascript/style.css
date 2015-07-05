@@ -1,0 +1,244 @@
+h1
+{
+	position:fixed;    
+	left:35%;
+}
+[name = connect_form]
+{
+	position:fixed;    
+	top:13%;
+	left:36%;
+}
+#connecturl
+{
+	font-weight:bold;
+}
+[name = texturl] 
+{
+	background:#DDDDDD;
+	border:1px solid #505255;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+[name = connect_button] 
+{
+	background:#DDDDDD;
+	border:1px solid #505255;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	font-weight:bold;
+}
+.clear:after 
+{
+    	clear: both;
+    	content: ".";
+    	display: block;
+    	height: 0;
+    	visibility: hidden;
+}
+nav
+{
+	display:inline-block;
+	width:160pt;
+	border:1px solid #505255;
+	border-bottom: 1px solid #282C2F;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	position:fixed;
+	top:19%;
+	left:4%;
+	-webkit-box-shadow:1px 1px 3px #292929;
+    	-moz-box-shadow:1px 1px 3px #292929;
+	background:#DDDDDD;
+}
+#register
+{
+	margin-left:15px;
+	font-size:16px;
+	font-weight:bold;
+}
+li
+{
+	list-style:none;
+	margin-left:-25px;
+	float:left;
+	border-right: 1px solid #2E3235;
+	background:#555D5F;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+li:hover
+{
+	background:#3E4245;
+	-moz-transition: background 1s ease-out;
+	-webkit-transition: background 1s ease-out;
+}
+li a
+{
+	display:block;
+	height:40px;
+	line-height:40px;
+	padding:0 30px;
+	font-size:12px;
+	color:#fff;
+	text-shadow: 0px -1px 0px #000;
+	text-decoration:none;
+	white-space:nowrap;
+	border-left: 1px solid #999E9F;
+    	border-top: 1px solid #999E9F;
+	-moz-border-top-left-radius: 2px;
+	-webkit-border-top-left-radius: 2px;	
+	z-index:100;
+}
+li > a
+{
+	position:relative;
+}
+li.first a
+{
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+}
+li.last
+{
+	border-right: 0 none;
+}
+dl
+{
+
+	 margin-top:0px;         
+}
+dl a
+{
+	background:transparent;
+	border:0 none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-transition: background 0.5s ease-out;
+	-webkit-transition: background 0.5s ease-out;
+	z-index:50;
+}
+dl a:hover
+{
+	color:#FFF;
+	background:#999E9F;
+	-moz-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+	-webkit-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+dd
+{
+	margin-top:-40px;
+	margin-left:0px;
+	opacity:0;
+	width:177px;
+	-webkit-transition-property:all;
+	-moz-transition-property: all;
+}
+li:hover dd
+{
+	margin-top:0;
+	opacity:1;
+}
+li dd:nth-child(1)
+{
+	-webkit-transition-duration: 0.1s;
+	-moz-transition-duration: 0.1s;
+}
+li dd:nth-child(2)
+{
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+}
+li dd:nth-child(3)
+{
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+}
+li dd:nth-child(4)
+{
+	-webkit-transition-duration: 0.4s;
+	-moz-transition-duration: 0.4s;
+}
+.description
+{
+	border:1px solid #505255;
+	border-bottom: 1px solid #282C2F;
+	position:relative;
+	margin-top:-450px;
+	margin-left:270px;
+	width:220pt;
+	height:300pt;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-webkit-box-shadow:1px 1px 3px #292929;
+    	-moz-box-shadow:1px 1px 3px #292929;
+	background:#3E4245;
+	z-index:150;
+	visibility: hidden;
+}
+#div_task
+{
+	border:1px solid #505255;
+	border-bottom: 1px solid #282C2F;
+	width:400pt;
+	height:300pt;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	position:fixed;    
+	top:19%;
+	left:27%;
+	-webkit-box-shadow:1px 1px 3px #292929;
+    	-moz-box-shadow:1px 1px 3px #292929;
+	background:#DDDDDD;
+}
+#task
+{
+	font-size:16px;
+	margin-left:15px;
+	font-weight:bold;
+}
+#div_log
+{
+	border:1px solid #505255;
+	border-bottom: 1px solid #282C2F;
+	width:170pt;
+	height:300pt;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	position:fixed;    
+	top:19%;
+	left:77%;
+	-webkit-box-shadow:1px 1px 3px #292929;
+    	-moz-box-shadow:1px 1px 3px #292929;
+	background:#DDDDDD;
+}
+#log
+{
+	font-size:16px;
+	margin-left:15px;
+	font-weight:bold;
+}
+[name = text_log]
+{
+	border:1px solid #505255;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;		
+	width:160pt;
+	height:250pt;
+	margin-top:10px;
+	margin-left:5px;
+}
+[name = debug_form]
+{
+	margin-top:1px;
+}
+[name = debug_button] 
+{
+	background:#DDDDDD;
+	border:1px solid #505255;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	font-weight:bold;
+}

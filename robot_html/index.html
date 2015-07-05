@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8" />
+	<title>开放式网络机器人演示测试平台</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+	<script src="./include/EaselJS/easeljs.js"></script>
+	<script src="./include/EventEmitter2/eventemitter2.js"></script>
+	<script src="./include/roslibjs/roslib.js"></script>
+	<script src="./include/statsjs/Stats.js"></script>
+	<script src="./include/mjpegcanvasjs/mjpegcanvas.js"></script>
+	<script src="./include/nodecontroljs/nodecontrol.js"></script>
+	<script src="./include/connectjs/connect.js"></script>
+	<script src="./include/jquery-uijs/jquery-1.9.1.js"></script>
+	<script src="./include/jquery-uijs/jquery-ui-1.10.3.custom.js"></script>
+	<script src="./include/threejs/three.js"></script>
+	<script src="./build/ros2d.js"></script>
+	<script src="./build/init.js"></script>
+	<script src="./build/nav2d.js"></script>
+	<script src="./build/ros3d.js"></script>
+	<script>
+	function widget_init()
+	{
+		$("#node_refresh").button({
+			icons: {
+        			primary: "ui-icon-refresh",
+      				},
+			text: false
+		});
+		$("#task_stop").button({
+			icons: {
+        			primary: "ui-icon-circle-close",
+      				},
+      			text: false
+		});
+		$("#node_list").accordion({
+			heightStyle: "content",
+			collapsible: true
+		});
+		$("#srv_detail").dialog({
+      		autoOpen: false,
+      		show: {
+        		effect: "blind",
+        		duration: 1000
+      		      },
+      		hide: {
+        		effect: "blind",
+        		duration: 1000
+		      }
+		});
+		$("#camera_detail").dialog({
+      		autoOpen: false,
+			width : 300,
+			height : 280,
+			title: null,
+      		show: {
+        		effect: "blind",
+        		duration: 1000
+      		      },
+      		hide: {
+        		effect: "blind",
+        		duration: 1000
+		      }
+		});
+	}
+  	function init() 
+	{
+    	var ros;	//ros对象
+		var node_listener;
+		var map_viewer;
+
+		widget_init();
+  	}
+	</script>
+	</head>
+	<body onLoad="init()">
+	<h1>构件化网络机器人测试平台</h1>
+    	<div id = "div_connect">
+        	<form name = "connect_form">
+        		<label id="connecturl">URL:</label>
+        		<input type = "text" name = texturl value = "localhost:9091">
+				<input type = "button" name = "connect_button" value = "Connect" onclick = "connect_button_onclick()">
+    		</form>
+    	</div>
+	<div id = "node_panel">
+		<label id="node_control_panel">Node Manage Panel</label>
+		<div id = "node_list"></div>
+		<div id = "srv_detail" title="Service Detail"></div>
+		<button id = "node_refresh" onclick = "component_update()"></button>
+	</div>
+	<div id = "map"></div>
+  	<div id = "map_panel">
+		<select id = "map_combobox" onchange = "map_select()">
+			<option value="">Select a map</option>
+			<option value="Room_404">Room 404</option>
+			<option value="Room_409">Room 407</option>
+			<option value="Room_407">Room 409</option>
+		</select>
+	</div>
+	<div id = "camera_detail">
+	</div>
+	<div id = "task_panel">
+		<select id = "task_combobox" onchange = "task_select()">
+			<option value="">Please select a task</option>
+			<option value="Task1">Fall Alarm</option>
+			<option value="Task2">Network Assistance</option>
+			<option value="Task3">Indoor Items Delivery</option>
+			<option value="Task4">Interactive Entertainment</option>
+			<option value="Task5">Fetch The Cup With Assistance</option>
+			<option value="Task6">Unknown Environment Navigation</option>
+		</select>
+		<div id = "task_status">
+			<button id = "task_stop" onclick = "task_stop()"></button>
+		</div>
+		<div id = "debug_panel">
+			<input type = "text" name = textdebug>
+			<input type = "button" name = "debug_button" value = "Debug" onclick = "debug_button_onclick()">
+		</div>				
+	</div>
+	</body>
+</html>

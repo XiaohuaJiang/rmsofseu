@@ -1,0 +1,152 @@
+<!DOCTYPE html> 
+<html>
+     <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     <title>开放式网络机器人演示系统</title>
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <script type="text/javascript" src="../rosjs-fuerte-devel/dist/ros_bundle.js"></script>
+     <script type="text/javascript" src="actionclient.js"></script>
+     <script type="text/javascript" src="eventemitter2.js"></script>
+     <script type="text/javascript" src="key_control.js"></script>
+     <script type="text/javascript" src="map.js"></script>
+     <script type="text/javascript" src="nav2d.js"></script>
+     <script type="text/javascript" src=mjpegcanvas.js></script>
+     <script type="text/javascript" src=description.js></script>
+     <script type="text/javascript">
+     function connect_button_onclick()	//连接按钮响应事件
+     {				
+	if(document.connect_form.texturl.value == "")
+	{
+		alert("\nPlease input the URL!");
+		document.connect_form.texturl.focus();
+	}
+	else
+	{			
+		if(document.connect_form.connect_button.value == "Connect")		//若未连接
+		{	
+			ros = new ROS();
+			ros.on('error', function(error) {console.log(error);});
+			ros.connect(document.connect_form.texturl.value);
+			document.connect_form.connect_button.value = "Disconnect";
+		}
+		else		//已经连接,点击则断开链接
+		{
+			document.connect_form.connect_button.value = "Connect";
+			ros.close();		//断开链接
+		}
+
+	}
+     }
+     function main()			
+     {
+	document.addEventListener('keydown', function (e) {	//捕捉键盘事件
+          handleKey(e.keyCode, true);
+        }, true);
+        document.addEventListener('keyup', function (e) {
+          handleKey(e.keyCode, false);
+        }, true);
+     }
+
+    </script>
+    </head>
+    <body onload="main()">
+    <h1>构件化网络机器人系统</h1>
+    <nav>
+	<label id="register">注册节点</label>        
+	<ul class="clear">
+    	<li>
+		<a href="#">Pioneer3-dx移动机器人</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(0)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+    	<li>
+		<a href="#">温度传感器节点</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(1)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+    	<li>
+		<a href="#">LM3S8962单片机</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(2)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#" onmouseover = "service_display(0)" onmouseout = "disappear()">服务查看</a></dd>
+		</dl>
+    	</li>
+    	<li>
+		<a href="#">cyton机械手臂</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(3)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+    	<li>
+		<a href="#">摄像头节点</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(4)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+	<li>
+		<a href="#">Kinect节点</a>
+		<dl>
+			<dd><a href="#" onmouseover = "display(5)" onmouseout = "disappear()">服务描述</a></dd>
+			<dd><a href="#">服务查看</a></dd>
+		</dl>
+    	</li>
+	</ul>
+    </nav>
+    <div id = "div_connect">
+        <form name = "connect_form">
+        <label id="connecturl">URL:</label>
+        <input type="text" name=texturl value="ws://localhost:9091">
+	<input type="button" name="connect_button" value="Connect" onclick="connect_button_onclick()">
+    	</form>
+    </div>
+    <div id = "div_task">
+	<form name = "current_task">
+	<label id="task">任务解析</label>
+	</form>	   
+    </div>
+    <div class = "description" id = "node_description">
+	<div id = "data_part1">
+	<label id="node_data_pic">节点描述</label>
+    	<img src = "source/LM3S8962.jpg" width = "100" border = "1" align = "right">
+	</div>
+	<div id = "data_part2">
+	<label id = "node_data_description"></label>
+	<label>Position: 中心楼404</label>
+	</br>
+	<label>Service name：LM3S8962</label>
+	</br>
+	<label>Description: SCM,supply Indoor map</label>
+	</br>
+	<label>for navigation,and display robot's power</label>
+	</br>
+	<label>service type: Data Processing</label>
+	</br>
+	<label>Output Parameter: /sensor/map</label>
+	</br>
+	<label>Output Type: nav_msgs/OccupancyGrid</label>
+	</br>
+	<label>Input_Parameter: /robot/power</label>
+	</br>
+	<label>Input_Type: /robot/status</label>
+	</div>
+    </div>
+    <div id = "service">
+	<label id="node_data">服务内容</label>
+	<div id = "data_part3">
+	<label>Current Power: 72%</label>
+	</br>
+	</br>
+	<label>中心楼404栅格地图</label>
+	</br>
+	</br>
+	<img src = "source/map.jpg" width = "150" border = "1" align = "center">
+	</div>
+    </div>
+    </body>
+    </html>

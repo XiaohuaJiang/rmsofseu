@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html>
+     <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <script type="text/javascript" src="../rosjs-fuerte-devel/dist/ros_bundle.js"></script>
+     <script type="text/javascript" src="actionclient.js"></script>
+     <script type="text/javascript" src="eventemitter2.js"></script>
+     <script type="text/javascript" src="key_control.js"></script>
+     <script type="text/javascript" src="map.js"></script>
+     <script type="text/javascript" src="nav2d.js"></script>
+     <script type="text/javascript" src=mjpegcanvas.js></script>
+     <script type="text/javascript">
+     function connect_button_onclick()	//连接按钮响应事件
+     {				
+	if(document.connect_form.texturl.value == "")
+	{
+		alert("\nPlease input the URL!");
+		document.connect_form.texturl.focus();
+	}
+	else
+	{			
+		if(document.connect_form.connect_button.value == "Connect")		//若未连接
+		{	
+			ros = new ROS();
+			ros.on('error', function(error) {console.log(error);});
+			ros.connect(document.connect_form.texturl.value);
+			document.connect_form.connect_button.value = "Disconnect";
+
+			var nav = new Nav2D({				//初始化导航模块
+      			ros : ros,
+      			canvasID : "nav"
+    			});
+		}
+		else		//已经连接,点击则断开链接
+		{
+			document.connect_form.connect_button.value = "Connect";
+			ros.close();		//断开链接
+		}
+
+	}
+     }
+     function main()			
+     {
+	document.addEventListener('keydown', function (e) {	//捕捉键盘事件
+          handleKey(e.keyCode, true);
+        }, true);
+        document.addEventListener('keyup', function (e) {
+          handleKey(e.keyCode, false);
+        }, true);
+	
+	var camera = new MjpegCanvas({			//camera初始化
+	host: 'localhost',
+	topic: '/usb_cam/image_raw',
+	canvasID: 'camera',
+	width: 320,
+	height: 240
+	});
+     }
+
+    </script>
+    </head>
+    <body onload="main()">
+    <h1>开放型网络机器人</h1>
+    <dl>
+    <dt>pioneer3-dx导航</dt>
+    <dd>sick lms200激光传感器</dd>
+    <dd>Kinect</dd>
+    <dt>手臂控制</dt>
+    </dl>
+    <div>
+        <form name = "connect_form">
+        <label id="connecturl">URL:</label>
+        <input type="text" name=texturl value="ws://localhost:9090">
+	<input type="button" name="connect_button" value="Connect" onclick="connect_button_onclick()">
+    	</form>
+    </div>
+    <div>
+	<form name = "control_form">
+	<input type="button" name="up_button" id="arrow_up" onclick="up_onclick()">
+	<input type="button" name="left_button" id="arrow_left" onclick="left_onclick()">
+        <input type="button" name="down_button" id="arrow_down" onclick="down_onclick()">
+	<input type="button" name="right_button" id="arrow_right" onclick="right_onclick()">
+	<input type="button" name="stop_button" id="arrow_stop" onclick="stop_onclick()">
+    	</form>
+    </div>
+    <div>
+	<canvas id="nav" width="600" height="400"></canvas>
+	<canvas id="camera" width="320" height="240"></canvas>
+    </div>
+    </body>
+    </html>
