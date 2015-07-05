@@ -1,0 +1,146 @@
+2015-06-10 15:22:13 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'translational' cannot be null
+Request URL: /admin/tfs/add
+Stack Trace:
+#0 /usr/share/php/Cake/Model/Datasource/DboSource.php(458): PDOStatement->execute(Array)
+#1 /usr/share/php/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `rm...', Array)
+#2 /usr/share/php/Cake/Model/Datasource/DboSource.php(1010): DboSource->execute('INSERT INTO `rm...')
+#3 /usr/share/php/Cake/Model/Model.php(1855): DboSource->create(Object(Tf), Array, Array)
+#4 /home/jiang/server/rms/app/Controller/TfsController.php(57): Model->save(Array)
+#5 [internal function]: TfsController->admin_add()
+#6 /usr/share/php/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(TfsController), Array)
+#7 /usr/share/php/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 /usr/share/php/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(TfsController), Object(CakeRequest))
+#9 /home/jiang/server/rms/app/webroot/index.php(75): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-06-11 13:01:37 Error: Fatal Error (1): Call to undefined function imagecreatefromstring() in [/home/jiang/server/rms/app/Controller/SettingsController.php, line 106]
+2015-06-11 13:01:37 Error: [FatalErrorException] Call to undefined function imagecreatefromstring()
+Request URL: /admin/settings/uploadLogo
+Stack Trace:
+#0 /usr/share/php/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/jiang/ser...', 106)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/jiang/ser...', 106, Array)
+#2 /usr/share/php/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/jiang/ser...', 106, Array)
+#3 /usr/share/php/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-06-11 13:07:21 Error: Fatal Error (1): Call to undefined function imagecreatefromstring() in [/home/jiang/server/rms/app/Controller/SettingsController.php, line 106]
+2015-06-11 13:07:21 Error: [FatalErrorException] Call to undefined function imagecreatefromstring()
+Request URL: /admin/settings/uploadLogo
+Stack Trace:
+#0 /usr/share/php/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/jiang/ser...', 106)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/jiang/ser...', 106, Array)
+#2 /usr/share/php/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/jiang/ser...', 106, Array)
+#3 /usr/share/php/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-06-11 13:09:48 Error: Fatal Error (1): Call to undefined function imagecreatefromstring() in [/home/jiang/server/rms/app/Controller/SettingsController.php, line 106]
+2015-06-11 13:09:48 Error: [FatalErrorException] Call to undefined function imagecreatefromstring()
+Request URL: /admin/settings/uploadLogo
+Stack Trace:
+#0 /usr/share/php/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/jiang/ser...', 106)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/jiang/ser...', 106, Array)
+#2 /usr/share/php/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/jiang/ser...', 106, Array)
+#3 /usr/share/php/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-06-11 13:15:30 Error: Fatal Error (1): Call to undefined function imagecreatefromstring() in [/home/jiang/server/rms/app/Controller/SettingsController.php, line 106]
+2015-06-11 13:15:30 Error: [FatalErrorException] Call to undefined function imagecreatefromstring()
+Request URL: /admin/settings/uploadLogo
+Stack Trace:
+#0 /usr/share/php/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/jiang/ser...', 106)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/jiang/ser...', 106, Array)
+#2 /usr/share/php/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/jiang/ser...', 106, Array)
+#3 /usr/share/php/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-06-24 14:53:58 Error: [SocketException] SMTP server did not accept the password.
+Request URL: /admin/subscriptions/announcement
+Stack Trace:
+#0 /usr/share/php/Cake/Network/Email/SmtpTransport.php(96): SmtpTransport->_auth()
+#1 /usr/share/php/Cake/Network/Email/CakeEmail.php(1161): SmtpTransport->send(Object(CakeEmail))
+#2 /home/jiang/server/rms/app/Controller/AppController.php(285): CakeEmail->send('halllo\n\n--The...')
+#3 /home/jiang/server/rms/app/Controller/SubscriptionsController.php(80): AppController->sendBatchEmail(Array, 'New Study Avail...', 'halllo')
+#4 [internal function]: SubscriptionsController->admin_announcement()
+#5 /usr/share/php/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SubscriptionsController), Array)
+#6 /usr/share/php/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /usr/share/php/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(SubscriptionsController), Object(CakeRequest))
+#8 /home/jiang/server/rms/app/webroot/index.php(75): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-06-24 14:56:03 Error: [SocketException] SMTP server did not accept the password.
+Request URL: /admin/subscriptions/announcement
+Stack Trace:
+#0 /usr/share/php/Cake/Network/Email/SmtpTransport.php(96): SmtpTransport->_auth()
+#1 /usr/share/php/Cake/Network/Email/CakeEmail.php(1161): SmtpTransport->send(Object(CakeEmail))
+#2 /home/jiang/server/rms/app/Controller/AppController.php(285): CakeEmail->send('HAH AA\n\n--The...')
+#3 /home/jiang/server/rms/app/Controller/SubscriptionsController.php(80): AppController->sendBatchEmail(Array, 'New Study Avail...', 'HAH AA')
+#4 [internal function]: SubscriptionsController->admin_announcement()
+#5 /usr/share/php/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SubscriptionsController), Array)
+#6 /usr/share/php/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /usr/share/php/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(SubscriptionsController), Object(CakeRequest))
+#8 /home/jiang/server/rms/app/webroot/index.php(75): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-06-24 14:58:44 Error: [SocketException] SMTP server did not accept the password.
+Request URL: /admin/subscriptions/announcement
+Stack Trace:
+#0 /usr/share/php/Cake/Network/Email/SmtpTransport.php(96): SmtpTransport->_auth()
+#1 /usr/share/php/Cake/Network/Email/CakeEmail.php(1161): SmtpTransport->send(Object(CakeEmail))
+#2 /home/jiang/server/rms/app/Controller/AppController.php(285): CakeEmail->send('haha\n\n--The M...')
+#3 /home/jiang/server/rms/app/Controller/SubscriptionsController.php(80): AppController->sendBatchEmail(Array, 'New Study Avail...', 'haha')
+#4 [internal function]: SubscriptionsController->admin_announcement()
+#5 /usr/share/php/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SubscriptionsController), Array)
+#6 /usr/share/php/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /usr/share/php/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(SubscriptionsController), Object(CakeRequest))
+#8 /home/jiang/server/rms/app/webroot/index.php(75): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-06-24 15:00:29 Error: [SocketException] SMTP server did not accept the password.
+Request URL: /admin/subscriptions/announcement
+Stack Trace:
+#0 /usr/share/php/Cake/Network/Email/SmtpTransport.php(96): SmtpTransport->_auth()
+#1 /usr/share/php/Cake/Network/Email/CakeEmail.php(1161): SmtpTransport->send(Object(CakeEmail))
+#2 /home/jiang/server/rms/app/Controller/AppController.php(285): CakeEmail->send('dlaja \n\n--The...')
+#3 /home/jiang/server/rms/app/Controller/SubscriptionsController.php(80): AppController->sendBatchEmail(Array, 'New Study Avail...', 'dlaja ')
+#4 [internal function]: SubscriptionsController->admin_announcement()
+#5 /usr/share/php/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SubscriptionsController), Array)
+#6 /usr/share/php/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /usr/share/php/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(SubscriptionsController), Object(CakeRequest))
+#8 /home/jiang/server/rms/app/webroot/index.php(75): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-06-24 15:01:28 Error: [SocketException] SMTP server did not accept the password.
+Request URL: /users/signup
+Stack Trace:
+#0 /usr/share/php/Cake/Network/Email/SmtpTransport.php(96): SmtpTransport->_auth()
+#1 /usr/share/php/Cake/Network/Email/CakeEmail.php(1161): SmtpTransport->send(Object(CakeEmail))
+#2 /home/jiang/server/rms/app/Controller/AppController.php(262): CakeEmail->send('Dear sdm,\n\nWe...')
+#3 /home/jiang/server/rms/app/Controller/UsersController.php(680): AppController->sendEmail('2', 'Welcome to My R...', 'Welcome to My R...')
+#4 /home/jiang/server/rms/app/Controller/UsersController.php(389): UsersController->__sendWelcomeEmail('2')
+#5 [internal function]: UsersController->signup()
+#6 /usr/share/php/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#7 /usr/share/php/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 /usr/share/php/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#9 /home/jiang/server/rms/app/webroot/index.php(75): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2015-06-24 15:04:31 Error: [SocketException] SMTP server did not accept the password.
+Request URL: /admin/users/message/2
+Stack Trace:
+#0 /usr/share/php/Cake/Network/Email/SmtpTransport.php(96): SmtpTransport->_auth()
+#1 /usr/share/php/Cake/Network/Email/CakeEmail.php(1161): SmtpTransport->send(Object(CakeEmail))
+#2 /home/jiang/server/rms/app/Controller/AppController.php(262): CakeEmail->send('Dear sdm,\n\nni...')
+#3 /home/jiang/server/rms/app/Controller/UsersController.php(182): AppController->sendEmail('2', 'New Private Mes...', 'nihao')
+#4 [internal function]: UsersController->admin_message('2')
+#5 /usr/share/php/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#6 /usr/share/php/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /usr/share/php/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#8 /home/jiang/server/rms/app/webroot/index.php(75): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-06-24 15:05:48 Error: [SocketException] SMTP server did not accept the password.
+Request URL: /admin/subscriptions/announcement
+Stack Trace:
+#0 /usr/share/php/Cake/Network/Email/SmtpTransport.php(96): SmtpTransport->_auth()
+#1 /usr/share/php/Cake/Network/Email/CakeEmail.php(1161): SmtpTransport->send(Object(CakeEmail))
+#2 /home/jiang/server/rms/app/Controller/AppController.php(285): CakeEmail->send('ffaga\n\n--The ...')
+#3 /home/jiang/server/rms/app/Controller/SubscriptionsController.php(80): AppController->sendBatchEmail(Array, 'New Study Avail...', 'ffaga')
+#4 [internal function]: SubscriptionsController->admin_announcement()
+#5 /usr/share/php/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SubscriptionsController), Array)
+#6 /usr/share/php/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#7 /usr/share/php/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(SubscriptionsController), Object(CakeRequest))
+#8 /home/jiang/server/rms/app/webroot/index.php(75): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}

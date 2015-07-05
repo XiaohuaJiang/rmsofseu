@@ -1,0 +1,92 @@
+var map_viewer;
+function map_init()	//构建地图初始化
+{
+	map_viewer = new ROS2D.Viewer({
+		divID : 'map',
+		width : 450,
+		height : 486
+		});
+	var gridClient = new ROS2D.OccupancyGridClient({
+      		ros : _ROS,
+      		rootObject : map_viewer.scene
+    	});
+	gridClient.on('change', function(){
+      		map_viewer.scaleToDimensions(gridClient.currentGrid.width,gridClient.currentGrid.height);
+    	});
+}
+
+
+function nav2d_init()	//2D导航初始化
+{
+	
+	map_viewer = new ROS2D.Viewer({
+		divID : 'ros2dmap',
+		width : 350,
+		height : 248,
+		});
+	var nav = NAV2D.OccupancyGridClientNav({
+        ros : _ROS,
+        rootObject : map_viewer.scene,
+        viewer : map_viewer,
+	withOrientation:true
+    });
+}
+function nav3d_init()	//3Dmap
+{
+	
+	map_viewer = new ROS3D.Viewer({
+		divID : 'ros3dmap',
+		width : 350,
+		height : 248,
+		antialias : true
+	});
+	map_viewer.addObject(new ROS3D.Grid());
+	var nav3d_gridClient = new ROS3D.OccupancyGridClient({
+        ros : _ROS,
+        rootObject : map_viewer.scene
+    });
+}
+function rosmap() {
+		//var w=Math.min($("#map").parent().width(), 5000000);
+		
+		var nav3d_viewer = new ROS3D.Viewer({
+		divID : 'map',
+		width : 450,
+		height : 486,
+		antialias : true
+	});
+		nav3d_viewer.addObject(new ROS3D.Grid());
+		var nav3d_gridClient = new ROS3D.OccupancyGridClient({
+        	ros : _ROS,
+       		 rootObject : nav3d_viewer.scene
+   		 });
+			
+}
+
+function map_select()
+{
+	var map_obj = document.getElementById("map_combobox");
+	var index = map_obj.selectedIndex;
+	switch(index)
+	{
+		case 1:
+			nav2d_init();
+			break;
+		case 2:
+			nav3d_init();
+			break;
+		case 3:
+			
+			component_widget_add(map_viewer.scene,"Perception",14,-18,90);
+			component_widget_add(map_viewer.scene,"Perception",14,-14,90);
+			component_widget_add(map_viewer.scene,"Perception",14,-10,90);
+			component_widget_add(map_viewer.scene,"Perception",12,-8.5,180);
+			component_widget_add(map_viewer.scene,"Perception",8,-8.5,220);
+			component_widget_add(map_viewer.scene,"Perception",8,-13.5,270);
+			component_widget_add(map_viewer.scene,"Perception",9,-20,310);
+			break;
+		default:
+			break;
+	}
+}
+function map2d_update()		//
